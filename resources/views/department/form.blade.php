@@ -9,61 +9,67 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <section>
-                <header>
-                    <h2 class="text-lg font-medium text-gray-900">
-                        {{ __('Department Information') }}
-                    </h2>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
 
-                    <p class="mt-1 text-sm text-gray-600">
-                        {{ __("Your department information.") }}
-                    </p>
-                </header>
+                    <section>
+                        <header>
+                            <h2 class="text-lg font-medium text-gray-900">
+                                {{ __('Department Information') }}
+                            </h2>
 
-                @if($department->id)
-                    @php($route = route('department.update', $department->id))
-                    @php($method = 'PUT')
-                @else
-                    @php($route = route('department.store'))
-                    @php($method = 'POST')
-                @endif
+                            <p class="mt-1 text-sm text-gray-600">
+                                {{ __("Your department information.") }}
+                            </p>
+                        </header>
 
-                <form method="post" action="{{ $route }}" class="mt-6 space-y-6">
-                    <input type="hidden" name="_method" value="{{ $method }}">
-                    @csrf
-                    
-                    <div>
-                        <x-input-label for="name" :value="__('Name')" />
-                        <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" 
-                        :value="old('name', $department->name)" />
-                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
-                    </div>
+                        @if($department->id)
+                            @php($route = route('department.update', $department->id))
+                            @php($method = 'PUT')
+                        @else
+                            @php($route = route('department.store'))
+                            @php($method = 'POST')
+                        @endif
 
-                    <div>
-                        <x-input-label for="description" :value="__('Description')" />
-                        <textarea 
-                            id="description" 
-                            name="description" 
-                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-                        >{{ old('description', $department->description) }}</textarea>
-                        <x-input-error class="mt-2" :messages="$errors->get('description')" />
-                    </div>
+                        <form method="post" action="{{ $route }}" class="mt-6 space-y-6">
+                            <input type="hidden" name="_method" value="{{ $method }}">
+                            @csrf
+                            
+                            <div>
+                                <x-input-label for="name" :value="__('Name')" />
+                                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" 
+                                :value="old('name', $department->name)" />
+                                <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                            </div>
 
-                    <div>
-                        <x-input-label for="status" :value="__('Status')" />
-                        <select name="status" id="status" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                            <option value="1" @if(old('status', $department->status) == 1) selected @endif>Active</option>
-                            <option value="0" @if(old('status', $department->status) == 0) selected @endif>Inactive</option>
-                        </select>
-                        <x-input-error class="mt-2" :messages="$errors->get('status')" />
-                    </div>
+                            <div>
+                                <x-input-label for="description" :value="__('Description')" />
+                                <textarea 
+                                    id="description" 
+                                    name="description" 
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                                >{{ old('description', $department->description) }}</textarea>
+                                <x-input-error class="mt-2" :messages="$errors->get('description')" />
+                            </div>
 
-                    <div class="flex items-center gap-4">
-                        <x-primary-button>{{ __('Save') }}</x-primary-button>
-                    </div>
+                            <div>
+                                <x-input-label for="status" :value="__('Status')" />
+                                <select name="status" id="status" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    <option value="1" @if(old('status', $department->status) == 1) selected @endif>Active</option>
+                                    <option value="0" @if(old('status', $department->status) == 0) selected @endif>Inactive</option>
+                                </select>
+                                <x-input-error class="mt-2" :messages="$errors->get('status')" />
+                            </div>
 
-                </form>
-            </section>
+                            <div class="flex items-center gap-4">
+                                <x-primary-button>{{ __('Save') }}</x-primary-button>
+                            </div>
+
+                        </form>
+                    </section>
+
+                </div>
+            </div>
 
 
         </div>
