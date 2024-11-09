@@ -1,6 +1,5 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
-import colors from 'tailwindcss/colors';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,13 +13,15 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            colors: {
-                // Add custom colors here
-                emerald: colors.emerald,
-                green: colors.green,
-                blue: colors.blue,
-            },
         },
     },
     plugins: [forms],
+    safelist: [
+        'bg-green-100',
+        'text-green-800',
+        'bg-emerald-100',
+        'text-emerald-800',
+        'bg-blue-100',
+        'text-blue-800'
+    ]
 };

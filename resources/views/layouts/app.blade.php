@@ -28,7 +28,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main style="min-height: 800px;">
 
                 {{ $slot }}
 

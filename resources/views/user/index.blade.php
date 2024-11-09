@@ -58,7 +58,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">{{ $user->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">{{ $user->email }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">
-                                    <span class="inline-flex px-2 text-xs leading-5 font-semibold rounded-full {{ $user->role === 'admin' ? 'bg-indigo-100 text-indigo-800' : 'bg-gray-100 text-gray-800' }}">
+                                    <span class="inline-flex px-2 text-xs leading-5 font-semibold rounded-full {{ $user->role === 'admin' ? 'bg-green-100 text-indigo-800' : 'bg-gray-100 text-gray-800' }}">
                                         {{ $user->role }}
                                     </span>
                                 </td>
