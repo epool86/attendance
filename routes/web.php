@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/report', [ReportController::class, 'report'])->name('report');
         Route::get('/report/pdf', [ReportController::class, 'reportPDF'])->name('report.pdf');
         Route::get('/report/excel', [ReportController::class, 'reportExcel'])->name('report.excel');
+        Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
     });
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
