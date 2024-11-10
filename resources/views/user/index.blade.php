@@ -43,6 +43,7 @@
                         <thead class="bg-gray-100">
                             <tr>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200">#</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200">Department</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200">User Name</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200">Email</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200">Role</th>
@@ -55,6 +56,7 @@
                             @foreach($users as $user)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">{{ ++$i }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">{{ $user->department ? $user->department->name : '' }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-b border-gray-200">{{ $user->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">{{ $user->email }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-b border-gray-200">

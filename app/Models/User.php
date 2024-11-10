@@ -22,6 +22,7 @@ class User extends Authenticatable //implements MustVerifyEmail
         'email',
         'password',
         'role',
+        'department_id',
     ];
 
     /**
@@ -43,4 +44,9 @@ class User extends Authenticatable //implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

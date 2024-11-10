@@ -50,6 +50,20 @@
                             </div>
 
                             <div>
+                                <x-input-label for="department_id" :value="__('Department')" />
+                                <select name="department_id" id="department_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                    @foreach($departments as $department)
+                                    <option 
+                                        value="{{ $department->id }}" 
+                                        @if(old('department_id', $user->department_id) == $department->id) selected @endif>
+                                        {{ $department->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                                <x-input-error class="mt-2" :messages="$errors->get('department_id')" />
+                            </div>
+
+                            <div>
                                 <x-input-label for="role" :value="__('Role')" />
                                 <select name="role" id="role" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                                     <option value="staff" @if(old('role', $user->role) == 'staff') selected @endif>Staff</option>

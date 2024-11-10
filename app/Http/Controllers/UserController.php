@@ -24,7 +24,8 @@ class UserController extends Controller
     public function create()
     {
         $user = new User;
-        return view('user.form', compact('user'));
+        $departments = Department::all();
+        return view('user.form', compact('user', 'departments'));
     }
 
     /**
@@ -60,7 +61,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.form', compact('user'));
+        $departments = Department::all();
+        return view('user.form', compact('user', 'departments'));
     }
 
     /**
